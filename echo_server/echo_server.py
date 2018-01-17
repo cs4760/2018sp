@@ -1,9 +1,13 @@
 
 import socket
 
+SERVER_HOST = '0.0.0.0'
+SERVER_PORT = 4760 # use one of your assigned ports instead
+SERVER_ADDR = (SERVER_HOST, SERVER_PORT)
+
 connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 connection.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-connection.bind(('0.0.0.0', 4760))
+connection.bind(SERVER_ADDR)
 connection.listen(10)
 
 while True:
